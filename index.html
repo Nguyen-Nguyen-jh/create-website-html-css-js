@@ -11,6 +11,30 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/styles.css" />
+    <style>
+      textarea::placeholder {
+        font-family: 'Lato', sans-serif !important;
+      }
+    </style>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const hamburgerIcon = document.querySelector('.hamburger-icon');
+        const navMenuMobile = document.querySelector('.nav-menu-mobile');
+
+        // Thêm sự kiện click vào hamburger icon
+        hamburgerIcon.addEventListener('click', () => {
+          // Kiểm tra nếu menu đang ở trạng thái 'display: none'
+          if (navMenuMobile.style.display === 'none' || !navMenuMobile.style.display) {
+            navMenuMobile.style.display = 'block'; // Đổi trạng thái display thành block khi show
+          } else {
+            navMenuMobile.style.display = 'none'; // Quay lại trạng thái display: none khi ẩn
+          }
+
+          // Toggle hiển thị menu di động (show class)
+          navMenuMobile.classList.toggle('show');
+        });
+      });
+    </script>
   </head>
   <body>
     <header>
@@ -38,6 +62,16 @@
         <!-- Icons Section (Right) -->
         <div class="btn-common">Hire Me</div>
       </div>
+
+      <nav class="nav-menu-mobile">
+        <ul>
+          <li><a href="#home" class="active">Home</a></li>
+          <li><a href="#Services">Services</a></li>
+          <li><a href="#about">About me</a></li>
+          <li><a href="#Portfolio">Portfolio</a></li>
+          <li><a href="#contact">Contact me</a></li>
+        </ul>
+      </nav>
     </header>
 
     <div class="container">
@@ -165,8 +199,8 @@
         </div>
         <div class="skills">
           <div class="skill">
-            <div class="circle" style="--percentage: 100%">
-              <img src="/images/icons/figma.svg" alt="" width="60" height="60" />
+            <div class="circle">
+              <img src="/images/circle-figma.svg" alt="" width="130" height="130" />
             </div>
             <div class="skill-details">
               <span>100%</span>
@@ -174,8 +208,8 @@
             </div>
           </div>
           <div class="skill">
-            <div class="circle" style="--percentage: 100%">
-              <img src="/images/icons/adobe.svg" alt="" width="60" height="60" />
+            <div class="circle">
+              <img src="/images/circle-adobe.svg" alt="" width="130" height="130" />
             </div>
             <div class="skill-details">
               <span>100%</span>
@@ -183,8 +217,8 @@
             </div>
           </div>
           <div class="skill">
-            <div class="circle" style="--percentage: 85%">
-              <img src="/images/icons/photoshop.svg" alt="" width="60" height="60" />
+            <div class="circle">
+              <img src="/images/circle-photoshop.svg" alt="" width="130" height="130" />
             </div>
             <div class="skill-details">
               <span>85%</span>
@@ -192,8 +226,8 @@
             </div>
           </div>
           <div class="skill">
-            <div class="circle" style="--percentage: 60%">
-              <img src="/images/icons/lllustrator.svg" alt="" width="60" height="60" />
+            <div class="circle">
+              <img src="/images/circle-lllustrator.svg" alt="" width="130" height="130" />
             </div>
             <div class="skill-details">
               <span>60%</span>
@@ -201,8 +235,8 @@
             </div>
           </div>
           <div class="skill">
-            <div class="circle" style="--percentage: 70%">
-              <img src="/images/icons/premiere.svg" alt="" width="60" height="60" />
+            <div class="circle">
+              <img src="/images/circle-premiere.svg" alt="" width="130" height="130" />
             </div>
             <div class="skill-details">
               <span>70%</span>
@@ -301,9 +335,12 @@
           </div>
           <div class="form-row">
             <input type="tel" placeholder="Phone Number" />
-            <select disabled>
-              <option>Service Of Interest</option>
-            </select>
+            <input
+              type="input"
+              placeholder="Service Of Interest"
+              class="service-interest"
+            />
+            <!-- <img src="/images/icons/arrow-down.svg" alt="" class="arrow-down" /> -->
           </div>
           <div class="form-row">
             <input type="text" placeholder="Timeline" style="height: fit-content" />
